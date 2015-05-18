@@ -28,7 +28,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/file/{path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
+        $resourcePath = "/storage/file/{Path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "DELETE";
@@ -126,7 +126,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/file/{path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
+        $resourcePath = "/storage/file/{Path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "GET";
@@ -184,7 +184,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/exist/{path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
+        $resourcePath = "/storage/exist/{Path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "GET";
@@ -240,7 +240,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/version/{path}/?appSid={appSid}&amp;storage={storage}";
+        $resourcePath = "/storage/version/{Path}/?appSid={appSid}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "GET";
@@ -371,7 +371,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/file/{path}/?appSid={appSid}&amp;newdest={newdest}&amp;versionId={versionId}&amp;storage={storage}&amp;destStorage={destStorage}";
+        $resourcePath = "/storage/file/{Path}/?appSid={appSid}&amp;newdest={newdest}&amp;versionId={versionId}&amp;storage={storage}&amp;destStorage={destStorage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "PUT";
@@ -441,7 +441,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/file/{path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
+        $resourcePath = "/storage/file/{Path}/?appSid={appSid}&amp;versionId={versionId}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "PUT";
@@ -499,7 +499,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/folder/{path}/?appSid={appSid}&amp;storage={storage}&amp;recursive={recursive}";
+        $resourcePath = "/storage/folder/{Path}/?appSid={appSid}&amp;storage={storage}&amp;recursive={recursive}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "DELETE";
@@ -549,9 +549,13 @@ class StorageApi {
 
      * @return ResponseMessage
      */
-    public function GetListFiles($Path = null, $storage = null) {
+    public function GetListFiles($Path, $storage = null) {
+        // verify required params are set
+        if ($Path == '') {
+            throw new Exception("missing required params");
+        }
         //parse inputs
-        $resourcePath = "/storage/folder/{path}/?appSid={appSid}&amp;storage={storage}";
+        $resourcePath = "/storage/folder/{Path}/?appSid={appSid}&amp;storage={storage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "GET";
@@ -671,7 +675,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/folder/{path}/?appSid={appSid}&amp;newdest={newdest}&amp;storage={storage}&amp;destStorage={destStorage}";
+        $resourcePath = "/storage/folder/{Path}/?appSid={appSid}&amp;newdest={newdest}&amp;storage={storage}&amp;destStorage={destStorage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "PUT";
@@ -734,7 +738,7 @@ class StorageApi {
             throw new Exception("missing required params");
         }
         //parse inputs
-        $resourcePath = "/storage/folder/{path}/?appSid={appSid}&amp;storage={storage}&amp;destStorage={destStorage}";
+        $resourcePath = "/storage/folder/{Path}/?appSid={appSid}&amp;storage={storage}&amp;destStorage={destStorage}";
         //$resourcePath = str_replace("{format}", "json", $resourcePath);
         $resourcePath = str_replace("toFormat={toFormat}", "format={format}", str_replace("/?", "?", str_replace("&amp;", "&", str_replace("\\*", "", $resourcePath))));
         $method = "PUT";
