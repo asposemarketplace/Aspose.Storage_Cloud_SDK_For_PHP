@@ -50,7 +50,7 @@ class StorageApiTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(200, $result->Code);
     }
     
-    /*public function testGetListFileVersions()
+    public function testGetListFileVersions()
     {
         $result = $this->storage->GetListFileVersions($Path="info.txt", $storage = null);        
         $this->assertEquals(200, $result->Code);
